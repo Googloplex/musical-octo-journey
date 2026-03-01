@@ -1,0 +1,47 @@
+=== GitHub Actions Runner Deep Probe ===
+
+[CPU]
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Model name:                              Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+Thread(s) per core:                      2
+Core(s) per socket:                      2
+CPU(s) scaling MHz:                      125%
+CPU max MHz:                             2800.0000
+CPU min MHz:                             800.0000
+NUMA node0 CPU(s):                       0-3
+
+[Memory]
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       1.1Gi        12Gi        42Mi       2.8Gi        14Gi
+Swap:          3.0Gi          0B       3.0Gi
+
+[Disk]
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       145G   54G   91G  37% /
+
+[Network interfaces]
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UP             10.1.0.148/20 metric 100 fe80::7eed:8dff:fe7c:9122/64 
+enP28850s1       UP             
+docker0          DOWN           172.17.0.1/16 
+
+[DNS]
+nameserver 127.0.0.53
+
+[Environment]
+GITHUB_ACTIONS=true
+RUNNER_OS=Linux
+RUNNER_ARCH=X64
+GITHUB_REPOSITORY=Googloplex/musical-octo-journey
+GITHUB_SHA=ad899fc2d98cfba52349cc1edc01a32a5134d0db
+
+[Installed tools]
+  python3    Python 3.12.3
+  node       v20.20.0
+  gcc        gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+  go         
+  java       openjdk 17.0.18 2026-01-20
+  docker     Docker version 28.0.4, build b8034c0
+
+=== DONE ===
