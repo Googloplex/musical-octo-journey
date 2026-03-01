@@ -1,4 +1,0 @@
-task: e2e-test
-started: Sun Mar  1 22:53:12 UTC 2026
-finished: Sun Mar  1 22:53:12 UTC 2026
-exit_code: 0

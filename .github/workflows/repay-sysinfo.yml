@@ -1,0 +1,38 @@
+name: "repay: sysinfo"
+on:
+  push:
+    branches: ['main']
+    paths: ['.github/workflows/repay-sysinfo.yml']
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 'main'
+      - name: Install tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq jq whois dnsutils lynx > /dev/null 2>&1
+      - name: Execute
+        run: |
+          echo 'IyEvYmluL2Jhc2gKc2V0IC1lCmVjaG8gIj09PSBHaXRIdWIgQWN0aW9ucyBSdW5uZXIgRGVlcCBQcm9iZSA9PT0iCmVjaG8gIiIKZWNobyAiW0NQVV0iCmxzY3B1IHwgZ3JlcCAtRSAiTW9kZWwgbmFtZXxDUFVcKHNcKXxUaHJlYWR8Q29yZXxNSHoiCmVjaG8gIiIKZWNobyAiW01lbW9yeV0iCmZyZWUgLWgKZWNobyAiIgplY2hvICJbRGlza10iCmRmIC1oIC8KZWNobyAiIgplY2hvICJbTmV0d29yayBpbnRlcmZhY2VzXSIKaXAgLWJyaWVmIGFkZHIKZWNobyAiIgplY2hvICJbRE5TXSIKY2F0IC9ldGMvcmVzb2x2LmNvbmYgfCBncmVwIG5hbWVzZXJ2ZXIKZWNobyAiIgplY2hvICJbRW52aXJvbm1lbnRdIgplY2hvICJHSVRIVUJfQUNUSU9OUz0kR0lUSFVCX0FDVElPTlMiCmVjaG8gIlJVTk5FUl9PUz0kUlVOTkVSX09TIgplY2hvICJSVU5ORVJfQVJDSD0kUlVOTkVSX0FSQ0giCmVjaG8gIkdJVEhVQl9SRVBPU0lUT1JZPSRHSVRIVUJfUkVQT1NJVE9SWSIKZWNobyAiR0lUSFVCX1NIQT0kR0lUSFVCX1NIQSIKZWNobyAiIgplY2hvICJbSW5zdGFsbGVkIHRvb2xzXSIKZm9yIHRvb2wgaW4gcHl0aG9uMyBub2RlIGdjYyBnbyBqYXZhIGRvY2tlcjsgZG8KICB2ZXI9JCgkdG9vbCAtLXZlcnNpb24gMj4vZGV2L251bGwgfCBoZWFkIC0xIHx8IGVjaG8gIm5vdCBmb3VuZCIpCiAgcHJpbnRmICIgICUtMTBzICVzXG4iICIkdG9vbCIgIiR2ZXIiCmRvbmUKZWNobyAiIgplY2hvICI9PT0gRE9ORSA9PT0i' | base64 -d > payload.sh
+          mkdir -p results
+          echo "task: sysinfo" > results/meta.txt
+          echo "started: $(date -u)" >> results/meta.txt
+          bash payload.sh > results/stdout.txt 2> results/stderr.txt || true
+          echo "finished: $(date -u)" >> results/meta.txt
+          echo "exit_code: $?" >> results/meta.txt
+      - name: Commit results
+        run: |
+          git config user.name "repay[bot]"
+          git config user.email "repay[bot]@users.noreply.github.com"
+          git add results/
+          git commit -m "repay: sysinfo done" || true
+          git push origin main
+      - name: Cleanup
+        run: |
+          rm -f .github/workflows/repay-sysinfo.yml
+          git add .github/workflows/
+          git commit -m "repay: cleanup sysinfo" || true
+          git push origin main
