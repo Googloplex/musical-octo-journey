@@ -1,0 +1,57 @@
+=== 4PDA SEARCH ===
+
+=== 4PDA PAGE 2 ===
+
+=== FCC INTERNAL PHOTOS ===
+
+=== MIOT SPEC JSON ===
+{
+    "type": "urn:miot-spec-v2:device:vacuum:0000A006:xiaomi-b108gl:1",
+    "description": "Robot Cleaner",
+    "services": [
+        {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:service:device-information:00007801:xiaomi-b108gl:1",
+            "description": "Device Information",
+            "properties": [
+                {
+                    "iid": 1,
+                    "type": "urn:miot-spec-v2:property:manufacturer:00000001:xiaomi-b108gl:1",
+                    "description": "Device Manufacturer",
+                    "format": "string",
+                    "access": [
+                        "read"
+                    ]
+                },
+                {
+                    "iid": 2,
+                    "type": "urn:miot-spec-v2:property:model:00000002:xiaomi-b108gl:1",
+                    "description": "Device Model",
+                    "format": "string",
+                    "access": [
+                        "read"
+                    ]
+                },
+                {
+                    "iid": 3,
+                    "type": "urn:miot-spec-v2:property:serial-number:00000003:xiaomi-b108gl:1",
+                    "description": "Device ID",
+                    "format": "string",
+                    "access": [
+                        "read"
+                    ]
+                },
+                {
+                    "iid": 4,
+                    "type": "urn:miot-spec-v2:property:firmware-revision:00000005:xiaomi-b108gl:1",
+                    "description": "Current Firmware Version",
+                    "format": "string",
+                    "access": [
+                        "read"
+                    ]
+                },
+                {
+                    "iid": 5,
+                    "type": "urn:miot-spec-v2:property:serial-no:000000FF:xiaomi-b108gl:1",
+                    "description": "Serial Number",
+                    "format": "string",
