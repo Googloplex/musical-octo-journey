@@ -1,0 +1,28 @@
+=== upd_xiaomi.vacuum.b108gl_4.5.6_0208.bin on cdn.cnbj2.fds.api.mi-img.com ===
+HTTP/1.1 404 Not Found
+Date: Sat, 07 Mar 2026 03:14:38 GMT
+Content-Type: application/octet-stream
+=== upd_xiaomi.vacuum.b108gl_4.5.6_0208.bin on cdn.awsde0.fds.api.mi-img.com ===
+HTTP/1.1 404 Not Found
+Date: Sat, 07 Mar 2026 03:14:39 GMT
+Content-Type: application/octet-stream
+=== upd_xiaomi.vacuum.b108gl.bin on cdn.cnbj2.fds.api.mi-img.com ===
+HTTP/1.1 404 Not Found
+Date: Sat, 07 Mar 2026 03:14:40 GMT
+Content-Type: application/octet-stream
+=== upd_xiaomi.vacuum.b108gl.bin on cdn.awsde0.fds.api.mi-img.com ===
+HTTP/1.1 404 Not Found
+Date: Sat, 07 Mar 2026 03:14:41 GMT
+Content-Type: application/octet-stream
+=== upd_xiaomi.vacuum.b108gl_4.5.6_0208.bin on cdn.cnbj2.fds.api.mi-img.com ===
+HTTP/1.1 404 Not Found
+Date: Sat, 07 Mar 2026 03:14:41 GMT
+Content-Type: application/octet-stream
+=== upd_xiaomi.vacuum.b108gl.bin on cdn.cnbj0.fds.api.mi-img.com ===
+HTTP/1.1 404 Not Found
+Date: Sat, 07 Mar 2026 03:14:42 GMT
+Content-Type: application/octet-stream
+=== upd_xiaomi.vacuum.b108gl.bin on cdn.awsbj0.fds.api.mi-img.com ===
+HTTP/1.1 404 Not Found
+Content-Type: application/octet-stream
+Content-Length: 132
