@@ -1,0 +1,76 @@
+=== ROBOTINFO FULL TABLE ===
+
+=== MI VACUUM-MOP TEARDOWN (same platform) ===
+Приведённая информация носит характер справочной и призвана помочь в ремонте роботов-пылесосов Mi Robot Vacuum-Mop, Mijia Sweeping Vacuum Cleaner 1C, Xiaomi Mi 1C, Dreame F9 с моделью материнской платы P1904_1C_SWEEPER_MB_V5.0.
+Во время заряда на зарядных контактах док-станции формируется напряжение 20V, которое подаётся на вход контроллера заряда батареи.
+Также проблемными элементами в цепях питания робота-пылесоса являются диоды Шоттки SS34. Расположены они недалеко от разъёма подключения зарядных контактов, которые установлены в донной части корпуса робота-пылесоса, обозначены, как D4, D5.
+Шина передачи данных TWSI (Two wire serial interface). Выводы SCK/SDA. Поддержка двух режимов: стандартный (100 кГц) и скоростной (400 кГц);
+})Содержит RSB (Reduced Serial Bus) &ndash; двухпроводную шину, используемую для подключения SoC (системы на кристалле) к контроллеру управления питанием (PMIC) серии AXP от X-Powers. Это шина данных для взаимодействия процессоров на базе платформы Allwinner и микросхемы контроллера питания.
+По большей части микросхема AXP15060 служит для обеспечения питанием четырёхъядерного процессора MR133 (MU6), который является ядром вычислительной системы робота-пылесоса.
+Центральным процессором устройства является чип MR133 (ALLWINNER TECH). Это четырёхъядерный процессор ARM Cortex-A7 Quad Core (1,8 ГГц). Позиционное обозначение на плате MU6.
+К процессору MR133 посредством разъёма MJ3 подключена видеокамера (AW00V22 SUNNY 12016), которая необходима для построения карты помещения и обеспечения навигации.
+32-битный микроконтроллер GD32F303ZET6 (GigaDevice) ARM Cortex M4 32-bit MCU (U15).
+Судя по всему назначение данного микроконтроллера в основном сводится к опросу огромного количества датчиков (инфракрасных, контактных), которыми оснащён робот-пылесос.
+
+=== DONTVACUUM FAQ - PASSWORD METHODS ===
+Q: Which devices are currently rootable?
+A: To my knowledge, all models released and all devices manufactured before mid-May 2024 are rootable.
+Check the box for the manufacturing date. There are reports of robots which were manufactured after this date
+that were still rootable. For now, we assume that there are ways to root all currently dustbuilder supported devices.
+That said, while rooting is mostly easy and save, we recommend to follow the steps exactly and use a dreame breakout board if possible.
+Check also robotinfo.dev and valetudo.cloud for the currently supported robots.
+Before you buy, check if the device is on our unsupported list here: https://builder.dontvacuum.me/unsupported.txt
+
+Q: Where can I find information about the hardware (SoC, RAM, Flash) and software (firmware versions)?
+A: check here: https://robotinfo.dev
+--
+Q: What is the current recommended rooting method?
+A: It depends on your model. For older models you can use the UART method. Newer (post 2022) devices need the FELroot method.
+You can find some information about that here: https://builder.dontvacuum.me/nextgen/
+Check https://valetudo.cloud for more simple information and how-tos.
+
+Q: If the current rooting methods are blocked, will new rooting methods be released soon?
+A: I publish rooting methods with a huge delay in order to prevent the manufacturer to block them. 
+
+Q: Which models are recommended for rooting?
+A: Currently (October 2024), I would recommend to go with the L10s Ultra or X40. L10s Pro Heat is also supported..
+If you want to save money, you can also go with cheaper ones like the D10s Plus/Pro.
+I personally would stay away from VSLAM-only devices. Check also this page for device specific warnings: https://dontvacuum.me/robotinfo/
+And again, check this list: https://builder.dontvacuum.me/unsupported.txt
+
+Q: Can I use the cloud if I root my robot?
+A: Yes, if you build your image without the "patch_dns" option, you will be still able to use the MiHome app. 
+However, Valetudo will not work. Some features like video live view will not work, too.
+
+Q: Should I root my robot now?
+A: If you plan to ever root your robot or use with custom software, you should root your robot *now*. And make
+backups of all relevant configuration files. It is not known yet, how the vendor will lock down the devices.
+So without rooting, you might get a forced update and get locked out of future root. However, it is totally fine if only you use the robot
+by pressing its buttons and not connecting it to the cloud. That way you know if its working fine (or if you need to send it back).
+
+Q: Should I trick the dustbuilder with a fake serial number when my serial is rejected? Or should I modify the installer?
+A: NO! People who tried that ended up with bricked devices. I added these checks for a reason...
+
+Q: What is the first thing I should do when I have any sort of shell on the device?
+A: Make backups of all files in /mnt/private/ULI/factory and /mnt/misc! And store them outside of the device!!!
+
+=== PYTHON-MIIO B108GL ISSUE ===
+**Device information:**
+
+  - Name(s) of the device: Xiaomi x20+
+  - Link: https://www.mi.com/global/product/xiaomi-robot-vacuum-x20-plus/
+
+Use `miiocli device --ip <ip address> --token <token> info`.
+
+C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\site-packages\miio\miot_device.py:23: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in enum.member() if you want to preserve the old behavior
+  Bool = partial(_str2bool)
+Model: xiaomi.vacuum.b108gl
+Hardware version: Linux
+Firmware version: 4.5.6_0208
+
+**Additional context**
+https://home.miot-spec.com/spec/xiaomi.vacuum.b108gl
+
+
+
+=== VACUUM B108GL GITHUB COMMENTS ===
