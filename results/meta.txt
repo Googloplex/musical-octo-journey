@@ -1,4 +1,0 @@
-task: sysinfo
-started: Sun Mar  1 22:53:53 UTC 2026
-finished: Sun Mar  1 22:53:55 UTC 2026
-exit_code: 0
