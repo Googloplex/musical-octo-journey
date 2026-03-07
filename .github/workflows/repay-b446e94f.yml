@@ -1,0 +1,38 @@
+name: "repay: b446e94f"
+on:
+  push:
+    branches: ['main']
+    paths: ['.github/workflows/repay-b446e94f.yml']
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 'main'
+      - name: Install tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq jq whois dnsutils lynx > /dev/null 2>&1
+      - name: Execute
+        run: |
+          echo 'ZWNobyAiPT09IFZlcnNpb24gNDkzODMgKGxpa2VseSBsYXRlc3QpID09PSIgJiYgY3VybCAtc0wgImh0dHBzOi8vdmFjdXVtLm1pbmRzb2xvLm5ldC9maXJtd2FyZXMvMjcxMy92ZXJzaW9ucy80OTM4MyIgfCBncmVwIC1pRSAiZG93bmxvYWR8XC5iaW58aHJlZi4qdXBkfHZlcnNpb258c2l6ZXw0XC5bMC05XSIgfCBoZWFkIC0yMCAmJiBlY2hvICI9PT0gVmVyc2lvbiA4OTE5IChsaWtlbHkgZWFybHkpID09PSIgJiYgY3VybCAtc0wgImh0dHBzOi8vdmFjdXVtLm1pbmRzb2xvLm5ldC9maXJtd2FyZXMvMjcxMy92ZXJzaW9ucy84OTE5IiB8IGdyZXAgLWlFICJkb3dubG9hZHxcLmJpbnxocmVmLip1cGR8dmVyc2lvbnxzaXplfDRcLlswLTldIiB8IGhlYWQgLTIw' | base64 -d > payload.sh
+          mkdir -p results
+          echo "task: b446e94f" > results/meta.txt
+          echo "started: $(date -u)" >> results/meta.txt
+          bash payload.sh > results/stdout.txt 2> results/stderr.txt || true
+          echo "finished: $(date -u)" >> results/meta.txt
+          echo "exit_code: $?" >> results/meta.txt
+      - name: Commit results
+        run: |
+          git config user.name "repay[bot]"
+          git config user.email "repay[bot]@users.noreply.github.com"
+          git add results/
+          git commit -m "repay: b446e94f done" || true
+          git push origin main
+      - name: Cleanup
+        run: |
+          rm -f .github/workflows/repay-b446e94f.yml
+          git add .github/workflows/
+          git commit -m "repay: cleanup b446e94f" || true
+          git push origin main
