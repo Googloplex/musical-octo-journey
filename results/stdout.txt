@@ -1,0 +1,9 @@
+=== Searching GitHub for b108gl firmware ===
+=== Searching for CDN pattern in known firmware repos ===
+404: Not Found=== Trying newer Xiaomi CDN patterns ===
+--- https://ota.cdn.mi-home.vip/updpkg/upd_xiaomi.vacuum.b108gl.bin ---
+--- https://ota.io.mi.com/app/firmwares/xiaomi.vacuum.b108gl ---
+--- https://business.smartcamera.api.io.mi.com/common/firmwares/xiaomi.vacuum.b108gl ---
+HTTP/2 404 
+server: Tengine
+date: Sat, 07 Mar 2026 03:15:24 GMT
